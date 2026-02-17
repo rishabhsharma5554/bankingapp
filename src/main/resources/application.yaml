@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: ${SPRING_APP_NAME:bankingapp}
+server:
+  port: 8080
+logging:
+  pattern:
+    console: ${LOGPATTERN_CONSOLE:%green(%d{HH:mm:ss.SSS}) %blue(%-5level) %red([%thread]) %yellow(%logger{15}) - %msg%n}
+  level:
+    web: debug
+    root: info
