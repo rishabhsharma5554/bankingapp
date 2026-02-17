@@ -10,9 +10,11 @@ public interface UserMapper {
 
     //mapping entity to dto
     @Mapping(target = "password", ignore = true)
+    @Mapping(source = "uname", target = "username")
     UserDto toDTO(User user);
 
     //mapping dto to entity, if email is null, then set it to default email
+    @Mapping(source = "username", target = "uname")
     @Mapping(target = "emailId", expression = "java(userDto.getEmailId() == null || userDto.getEmailId().isEmpty() ? \"no-email@rishabhtech.com\" : userDto.getEmailId())")
     User toEntity(UserDto userDto);
 }
